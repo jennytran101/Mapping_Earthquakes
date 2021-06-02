@@ -39,19 +39,17 @@ L.control.layers(baseMaps).addTo(map);
 // // Then we add out 'streets' title layer to the map
 // streets.addTo(map);
 
-// // // Accessing the airport GeoJSON URL
-// let past7Days = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson" 
 
-
-// // Grabbing our GeoJSON data.
-// d3.json(past7Days).then(function(data) {
-//   console.log(data);
-//   // Creating a GeoJSON layer with the retrieved data.
-//   L.geoJson(data).addTo(map);
-// });
 
 // Retrieve the earthquake GeoJSON data.
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(function(data) {
   // Creating a GeoJSON layer with the retrieved data.
-  L.geoJson(data).addTo(map);
-});
+  L.geoJson(data, {
+    // We turn each feature into a circleMarker on the map.
+    pointToLayer: function(feature, latlng) {
+                console.log(data);
+                return L.circleMarker(latlng);
+            },
+        }).addTo(map);
+})
+    
