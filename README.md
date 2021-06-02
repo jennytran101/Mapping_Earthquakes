@@ -1,7 +1,7 @@
 # Mapping_Earthquakes
 
 # Street view: 
-![Street](Resources/street.png)
+![Street](Resources/street_view.png)
 
 # Satellite view:
 ![Satellite](Resources/satellite.png)
